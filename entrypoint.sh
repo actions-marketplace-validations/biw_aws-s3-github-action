@@ -2,7 +2,7 @@
 
 function usage_docs {
   echo ""
-  echo "- uses: keithweaver/aws-s3-github-action@v1.0.0"
+  echo "- uses: biw/aws-s3-github-action@v1.0.0"
   echo "  with:"
   echo "    command: cp"
   echo "    source: ./local_file.txt"
@@ -105,6 +105,11 @@ function validate_source_and_destination {
 }
 function main {
   echo "v1.0.0"
+  if ! command -v aws &> /dev/null
+  then
+      echo "aws could not be found"
+      exit 1
+  fi
   get_configuration_settings
   get_command
   validate_source_and_destination

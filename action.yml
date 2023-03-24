@@ -1,12 +1,9 @@
-name: 'AWS S3 Github Action'
+name: 'AWS S3 Github Action - win/mac'
 description: 'This action allows you to use commands similar to AWS S3 CLI.'
-author: 'KeithWeaver'
+author: 'biw'
 branding:
   icon: 'upload-cloud'
   color: 'red'
-runs:
-  using: docker
-  image: Dockerfile
 inputs:
   command:
     description: "The command that will be performed. More info: https://docs.aws.amazon.com/cli/latest/reference/s3/#available-commands"
@@ -35,3 +32,5 @@ inputs:
   flags:
     description: "Additional query flags."
     required: false
+runs:
+  bash ./entrypoint.sh
